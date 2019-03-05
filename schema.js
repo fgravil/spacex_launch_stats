@@ -17,7 +17,7 @@ const LaunchType = new GraphQLObjectType({
         launch_year: { type: GraphQLString },
         launch_date_local: { type: GraphQLString },
         launch_success: { type: GraphQLBoolean },
-        rocker: { type: RocketType }
+        rocket: { type: RocketType }
     })
 });
 
@@ -25,7 +25,7 @@ const LaunchType = new GraphQLObjectType({
 const RocketType = new GraphQLObjectType({
     name: 'Rocket',
     fields: () => ({
-        id: { type: GraphQLString },
+        rocket_id: { type: GraphQLString },
         rocket_name: { type: GraphQLString },
         rocket_type: { type: GraphQLString }
     })
@@ -59,7 +59,7 @@ const RootQuery = new GraphQLObjectType({
                     .then(res => res.data);
             }
         },
-        launch: {
+        rocket: {
             type: RocketType,
             args: {
                 id: {type: GraphQLInt}
